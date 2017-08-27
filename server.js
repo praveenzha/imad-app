@@ -1,24 +1,42 @@
-<html>
-<head>
-    <title>this is pj</title>
-</head>
-<body>
-    <p>hii this is my first webapp
-    hii this is my first webapp
-    hii this is my first webapp
-    hii this is my first webapp
-    hii this is my first webapp
-    hii this is my first webapp
-    hii this is my first webapp</p>
-    <p>
-    hii this is my first webapp
-    hii this is my first webapp
-    hii this is my first webapp
-    hii this is my first webapp
-    hii this is my first webapp
-    hii this is my first webapp
-    hii this is my first webapp
-    hii this is my first webapp</p>
-</body>
+var express = require('express');
+var morgan = require('morgan');
+var path = require('path');
 
-</html>
+var app = express();
+app.use(morgan('combined'));
+
+app.get('/', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'index.html'));
+});
+
+app.get('/ui/style.css', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'style.css'));
+});
+app.get('/articleone',function (req,res){
+res.sendFile(path.join(__dirname, 'ui', 'articleone.html'));
+});
+
+
+app.get('/articletwo',function (req,res){
+    res.sendFile(path.join(__dirname, 'ui', 'articletwo.html'));
+
+});
+
+
+app.get('/articlethreee',function (req,res){
+    res.send('article three requestedand will be served here');
+});
+
+
+app.get('/ui/madi.png', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'madi.png'));
+});
+
+
+// Do not change port, otherwise your app won't run on IMAD servers
+// Use 8080 only for local development if you already have apache running on 80
+
+var port = 80;
+app.listen(port, function () {
+  console.log(`IMAD course app listening on port ${port}!`);
+});

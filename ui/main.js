@@ -14,6 +14,8 @@ button.onclick=function(){
             }
         }
     }
-    
+  
+  request.open('GET','http://praveenjha15.imad.hasura-app.io/counter',true);
+  request.send(null);
 };
     

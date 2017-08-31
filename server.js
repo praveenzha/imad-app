@@ -20,7 +20,7 @@ var counter=0;
 app.get('/counter',function(rew,res))
 {
     counter=counter+1;
-    rew.send(counter.toString());
+    res.send(counter.toString());
 });
 
 app.get('/articletwo',function (req,res){
